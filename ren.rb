@@ -1,4 +1,4 @@
-card_array = ['S1', 'D1', 'H1', 'K3', 'D3']
+card_array = ['D2', 'D4', 'D1', 'D5', 'D13']
 puts "選択したカードは #{card_array}"
 puts "-------------------"
 
@@ -42,8 +42,8 @@ end
 
 # 2.ストレートフレッシュの検証
 # 5枚同じ絵柄で数字が順番に並んでいる
-sf_num = num.sort
-if uniq_egara_num == 5 and sf_num == num
+sort_num = num.sort
+if uniq_egara_num == 5 and sort_num == num
   puts 'ストレートフラッシュ'
   exit
 end
@@ -71,7 +71,37 @@ end
 
 # 5.フラッシュの検討
 # 同じ絵柄が5枚揃う
+if uniq_egara_num == 5
+  puts 'フラッシュ'
+  exit
+end
 
+# 6.ストレートの検証
+# 数字が5枚連続に続く
+if sort_num == num
+  puts 'ストレート'
+  exit
+end
 
+# 7.スリーカードの検証
+# 同じ数字が3枚揃う
+if uniq_num_num == 3
+  puts 'スリーカード'
+  exit
+end
 
+# 8.ツウ・ペアの検証
+# 同じ数字2つが2組
+if num_uniq_hash.values.count(2) == 2
+  puts 'ツウ・ペア' 
+  exit
+end
+
+# 9.ワン・ペアの検証
+if num_uniq_hash.values.count(2) == 1
+  puts 'ワン・ペア'
+  exit
+end
+
+# 10.役なし(上記のいずれにも該当しない)
 puts '役はありません'
