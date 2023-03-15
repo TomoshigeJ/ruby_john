@@ -1,4 +1,4 @@
-card_array = ['S13', 'D13', 'H10', 'K13', 'D10']
+card_array = ['S1', 'D1', 'H1', 'K3', 'D3']
 puts "選択したカードは #{card_array}"
 puts "-------------------"
 
@@ -17,7 +17,7 @@ puts "egaraは #{egara}"
 # 絵柄の重複数をチェック
 egara_uniq_hash = egara.group_by(&:itself).map{ |k,v| [k,v.size] }.to_h
 uniq_egara_num = egara_uniq_hash.values.max
-puts "絵柄の重複数は #{uniq_egara_num}"
+puts "絵柄の最大重複数は #{uniq_egara_num}"
 
 # 数値のみ
 puts "numは #{num}"
@@ -25,7 +25,7 @@ puts "numは #{num}"
 # 数字の重複数をチェック
 num_uniq_hash = num.group_by(&:itself).map{ |k,v| [k,v.size] }.to_h
 uniq_num_num = num_uniq_hash.values.max
-puts "数字の重複数は #{uniq_num_num}"
+puts "数字の最大重複数は #{uniq_num_num}"
 
 puts "検証開始....."
 puts "-------------------"
@@ -57,7 +57,21 @@ end
 
 # 4.フルハウスの検証
 # 同じ数字が3枚と2枚の組み合わせ
-p num_uniq_hash
+num_uniq_hash_with_index = {}
+num_uniq_hash.each.with_index(1) do | (k,v), i |
+  num_uniq_hash_with_index.store(i, v)
+end
+
+if num_uniq_hash_with_index.has_key?(2)
+  if num_uniq_hash_with_index[1] + num_uniq_hash_with_index[2] == 5
+    puts 'フルハウス'
+    exit
+  end
+end
+
+# 5.フラッシュの検討
+# 同じ絵柄が5枚揃う
+
 
 
 puts '役はありません'
