@@ -1,2 +1,1 @@
-RUNTEQカリキュラム
-Ruby基礎編 アルゴリズムについて
+Rubyプログラム / GitHub練習用
