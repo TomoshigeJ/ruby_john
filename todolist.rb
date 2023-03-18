@@ -25,16 +25,15 @@ class Todo
 
 end
 
+# インスタンスの作成
 todo = Todo.new(1, "runteq")
 dog = Todo.new(2, "犬の散歩に行く")
 
-dog.completed
-
-p todo
-p todo.to_string
-
 todo.complete
+
 p todo
 p todo.to_string
+
+p dog
 p dog.to_string
 
