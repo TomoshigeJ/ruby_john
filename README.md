@@ -1,1 +1,3 @@
-Rubyプログラム / GitHub練習用
+[用途]
+Rubyプログラム練習 
+GitHub練習
