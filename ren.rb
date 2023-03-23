@@ -1,43 +1,19 @@
-class Todo
-  attr_accessor :id, :description, :completed
-  
-  def initialize(id, description)
-    @id = id
-    @description = description
-    @completed = false
-  end
+dog = true
+puts dog ? 'こっちはtrue' : 'こっちはfalse'
 
-  def complete
-    @completed = true
-  end
+hotdog = false
+puts hotdog ? 'こっちはtrue' : 'こっちはfalse'
 
-  def complete_string
-    if @completed
-      "完了!!"
-    else
-      "未完了.."
-    end
-  end
-
-  def to_string
-    "#{@id}: #{@description} #{completed ? '完了!!' : '未完了'}"  
-  end
-
+# if文
+ruby_version = 2
+if ruby_version > 2
+	result = 'ok'
+else
+	result = 'サポート対象外です'
 end
+p result
 
-# インスタンスの作成
-todo = Todo.new(1, "runteq")
-dog = Todo.new(2, "犬の散歩に行く")
-rabbit = Todo.new(3, "ぴょーん")
-
-todo.complete
-rabbit.complete
-
-p todo
-p todo.to_string
-
-p dog
-p dog.to_string
-
-p rabbit
-p rabbit.to_string
+# スマートに
+ruby_version = 3
+ruby_version > 2 ?  result = 'ok' : result = 'サポート対象外です'
+p result
