@@ -17,3 +17,10 @@ p result
 ruby_version = 3
 ruby_version > 2 ?  result = 'ok' : result = 'サポート対象外です'
 p result
+
+test = []
+(1..10).each do |n|
+  tmp = n.even? ? n * 10 : n
+  test.push(tmp)
+end
+p test
